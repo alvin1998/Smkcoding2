@@ -29,7 +29,7 @@ List<GithubUserItem>, private val listener: (GithubUserItem)-> Unit) :
         fun bindItem(item: GithubUserItem, listener: (GithubUserItem) -> Unit) {
             Log.d("ades", item.avatarUrl)
             txtNegara.text = item.login
-            Glide.with(context).load("https://covid19.mathdro.id/api/og").into(imgUser)
+            Glide.with(context).load("https://covid19.mathdro.id/api").into(imgUser)
 
             containerView.setOnClickListener { listener(item) }
         }

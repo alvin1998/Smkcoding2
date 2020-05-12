@@ -3,13 +3,11 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
 import com.google.android.material.tabs.TabLayoutMediator
-import com.smkcoding.smkcodingchalleng2.R
 import com.google.android.material.tabs.TabLayoutMediator.TabConfigurationStrategy
-import com.smkcoding.smkcodingchalleng2.ViewPagerAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-    val menuTeks = arrayOf("Teman", "Github", "profil")
+    val menuTeks = arrayOf("Home", "Github", "profil")
     val manuIcon = arrayOf(R.drawable.ic_construction, R.drawable.ic_add,
         R.drawable.ic_social_media)
 

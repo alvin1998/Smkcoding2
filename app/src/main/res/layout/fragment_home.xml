@@ -5,7 +5,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/swipeRefreshLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -27,6 +28,34 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/judul"
             android:scrollbars="vertical"/>
+
+        <LinearLayout
+            android:layout_below="@+id/listfoto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_margin="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2.5"
+                android:text="Covid-19"
+                android:background="#f5b971"
+
+                />
+
+
+
+            <Button
+                android:id="@+id/hidup_sehat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:layout_margin="16dp"
+                android:text="HIDUP SEHAT"
+                android:background="#f5b971"/>
+        </LinearLayout>
 
     </RelativeLayout>
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

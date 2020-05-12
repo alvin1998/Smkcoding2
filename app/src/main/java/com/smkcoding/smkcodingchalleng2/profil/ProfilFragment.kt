@@ -1,4 +1,4 @@
-package com.smkcoding.smkcodingchalleng2
+package com.smkcoding.smkcodingchalleng2.profil
 import ProfilAdapter
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,13 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.smkcoding.smkcodingchalleng2.GithubUserItem
+import com.smkcoding.smkcodingchalleng2.R
 import com.smkcoding.smkcodingchalleng2.data.*
 import com.smkcoding.smkcodingchalleng2.util.dismissLoading
 import com.smkcoding.smkcodingchalleng2.util.showLoading
 import com.smkcoding.smkcodingchalleng2.util.tampilToast
 import kotlinx.android.synthetic.*
 import kotlinx.android.synthetic.main.fragment_github.*
-import okhttp3.OkHttpClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
