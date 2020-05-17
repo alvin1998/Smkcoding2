@@ -1,25 +1,20 @@
 package com.smkcoding.smkcodingchalleng2.profil
-import ProfilAdapter
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.smkcoding.smkcodingchalleng2.GithubUserItem
+import com.google.firebase.auth.FirebaseAuth
 import com.smkcoding.smkcodingchalleng2.R
-import com.smkcoding.smkcodingchalleng2.data.*
-import com.smkcoding.smkcodingchalleng2.util.dismissLoading
-import com.smkcoding.smkcodingchalleng2.util.showLoading
-import com.smkcoding.smkcodingchalleng2.util.tampilToast
+import com.smkcoding.smkcodingchalleng2.login.Login
 import kotlinx.android.synthetic.*
-import kotlinx.android.synthetic.main.fragment_github.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import kotlinx.android.synthetic.main.fragment_profil.*
 
 class ProfilFragment : Fragment() {
-
+    private lateinit var auth: FirebaseAuth//
+    private var fStateListener: FirebaseAuth.AuthStateListener? = null
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -29,53 +24,55 @@ class ProfilFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_github, container, false)
+        return inflater.inflate(R.layout.fragment_profil, container, false)
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        callApiGetGithubUser()
+        CekLogin()
+        btnLogout.setOnClickListener {Keluar()}
     }
 
-    private fun callApiGetGithubUser() {
-        showLoading(context!!, swipeRefreshLayout)
-        val httpClient = httpClient()
-        val apiRequest = apiRequest<GithubService>(httpClient)
-        val call = apiRequest.getUsers()
-        call.enqueue(object : Callback<List<GithubUserItem>> {
-            override fun onFailure(call: Call<List<GithubUserItem>>, t: Throwable) {
-                dismissLoading(swipeRefreshLayout)
-            }
-            override fun onResponse(
-                call: Call<List<GithubUserItem>>,
-                response: Response<List<GithubUserItem>>
-            ) {
-                dismissLoading(swipeRefreshLayout)
-                when {
-                    response.isSuccessful ->
-                        when {
-                            response.body()?.size != 0 ->
-                                tampilGithubUser(response.body()!!)
-                            else -> {
-                                tampilToast(context!!, "Berhasil")
-                            }
-                        }
-                    else -> {
-                        tampilToast(context!!, "Gagal")
-                    }
+    private fun Keluar(){
+        FirebaseAuth.getInstance().signOut()
+        val intent = Intent (context, Login::class.java)
+        startActivity(intent)
 
-                }
-            }
-        })
     }
-    private fun tampilGithubUser(githubUsers: List<GithubUserItem>) {
-        listGithubUser.layoutManager = LinearLayoutManager(context)
-        listGithubUser.adapter = ProfilAdapter(context!!, githubUsers) {
-            val githubUser = it
-            tampilToast(context!!, githubUser.login)
-        }
-    }
+
+
+
     override fun onDestroy() {
         super.onDestroy()
         this.clearFindViewByIdCache()
+    }
+
+    private  fun CekLogin() {
+
+        auth = FirebaseAuth.getInstance()
+        fStateListener =  FirebaseAuth.AuthStateListener(){
+            val user = auth.currentUser
+            if (user != null) {
+                Log.d("alsd", "User : Masuk");
+            } else {
+                // User sedang logout
+                Log.d("alsd", "User : Keluar");
+                val intent = Intent (context, Login::class.java)
+                startActivity(intent)
+
+            }
+        }
+
+    }
+
+
+     override fun onStart() {
+        super.onStart();
+        auth.addAuthStateListener(fStateListener!!)
+    }
+    override fun onStop() {
+        super.onStop()
+        if (fStateListener != null) {
+            auth.removeAuthStateListener(fStateListener!!)
+        }
     }
 }

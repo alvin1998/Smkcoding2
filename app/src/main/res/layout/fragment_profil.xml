@@ -6,9 +6,10 @@
     android:id="@+id/swipeRefreshLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/judul"
@@ -18,13 +19,18 @@
             android:textSize="20sp"
             tools:ignore="MissingConstraints"
             android:gravity="center_horizontal"
-            android:fontFamily="casual"/>
+            android:layout_marginTop="10dp"
+            android:textColor="#000000"/>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/listGithubUser"
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_margin="16dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/judul"
-            android:scrollbars="vertical"/>
-    </RelativeLayout>
+            android:text="Logout"
+            android:background="#f5b971"
+            android:textSize="11sp"
+            />
+
+    </LinearLayout>
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

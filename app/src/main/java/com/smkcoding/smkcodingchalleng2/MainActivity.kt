@@ -1,5 +1,7 @@
 package com.smkcoding.smkcodingchalleng2
 import android.os.Bundle
+import android.os.Handler
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
 import com.google.android.material.tabs.TabLayoutMediator
@@ -7,7 +9,8 @@ import com.google.android.material.tabs.TabLayoutMediator.TabConfigurationStrate
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-    val menuTeks = arrayOf("Home", "Github", "profil")
+    private var doubleBackToExitPressedOnce = false
+    val menuTeks = arrayOf("Home", "Covid", "profil")
     val manuIcon = arrayOf(R.drawable.ic_construction, R.drawable.ic_add,
         R.drawable.ic_social_media)
 
@@ -24,6 +27,10 @@ class MainActivity : AppCompatActivity() {
                     manuIcon[position], null)
 
             }).attach()
+    }
+
+    override fun onBackPressed() {
+
     }
 
 

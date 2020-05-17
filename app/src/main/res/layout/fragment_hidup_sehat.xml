@@ -1,21 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipeRefreshLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#ffecc7"
-    tools:context=".hidup_sehat.HidupFragment">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/judul"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="github"
-        android:textSize="20sp"
-        tools:ignore="MissingConstraints"
-        android:gravity="center_horizontal"
-        android:fontFamily="casual"/>
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/judul"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Al-quran"
+            android:textSize="20sp"
+            tools:ignore="MissingConstraints"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:textColor="#000000"
+            />
+
+        <LinearLayout
+            android:id="@+id/awes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/judul">
+
+            <Button
+                android:id="@+id/PlayAudio"
+                android:layout_margin="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_weight="2"
+                android:text="Play"
+                android:background="#f5b971"/>
+
+            <Button
+                android:id="@+id/PauseAudio"
+                android:layout_margin="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_weight="2"
+                android:text="PAUSE"
+                android:background="#f5b971"/>
+            <Button
+                android:id="@+id/StopAudio"
+                android:layout_margin="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_weight="2"
+                android:text="STOP"
+                android:background="#f5b971"/>
+        </LinearLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listsehat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/awes"
+            android:scrollbars="vertical"/>
+
+    </RelativeLayout>
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

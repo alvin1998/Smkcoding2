@@ -1,13 +1,16 @@
-package com.smkcoding.smkcodingchalleng2.hidup_sehat
+package com.smkcoding.smkcodingchalleng2.islam
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.smkcoding.smkcodingchalleng2.R
+import kotlinx.android.synthetic.main.activity_main2.*
 
-class HidupFragment : AppCompatActivity() {
+class Main2Activity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragment_hidup_sehat)
+        setContentView(R.layout.activity_main2)
+
     }
 }

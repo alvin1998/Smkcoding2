@@ -12,22 +12,23 @@
 
         <TextView
             android:id="@+id/judul"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Covid-19 di Indonesia"
+            android:text="Donor Darah Jawa Timur"
             android:textSize="20sp"
             tools:ignore="MissingConstraints"
             android:gravity="center_horizontal"
             android:layout_marginTop="10dp"
-            android:textColor="#000000"/>
+            android:textColor="#000000"
+            />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/listGithubUser"
+            android:id="@+id/listDonor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/judul"
             android:scrollbars="vertical"/>
-
 
     </RelativeLayout>
 

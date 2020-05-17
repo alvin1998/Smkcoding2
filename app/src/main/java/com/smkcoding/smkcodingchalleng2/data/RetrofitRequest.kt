@@ -26,10 +26,29 @@ import java.util.concurrent.TimeUnit
         return retrofit.create(T::class.java)
     }
 
-    inline fun <reified T> apiRequestHome(okHttpClient: OkHttpClient): T {
+    inline fun <reified T> apiRequestIslam(okHttpClient: OkHttpClient): T {
         val gson = GsonBuilder().create()
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://covid19.mathdro.id/")
+            .baseUrl("https://al-quran-8d642.firebaseio.com/")
+            .client(okHttpClient)
+            .addConverterFactory(GsonConverterFactory.create(gson))
+            .build()
+        return retrofit.create(T::class.java)
+    }
+
+    inline fun <reified T> apiRequestCovid(okHttpClient: OkHttpClient): T {
+        val gson = GsonBuilder().create()
+        val retrofit = Retrofit.Builder()
+            .baseUrl("https://api.kawalcorona.com/indonesia/")
+            .client(okHttpClient)
+            .addConverterFactory(GsonConverterFactory.create(gson))
+            .build()
+        return retrofit.create(T::class.java)
+    }
+    inline fun <reified T> apiRequestData(okHttpClient: OkHttpClient): T {
+        val gson = GsonBuilder().create()
+        val retrofit = Retrofit.Builder()
+            .baseUrl("https://script.googleusercontent.com/macros/")
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()

@@ -8,6 +8,7 @@ import android.view.Window
 import android.view.WindowManager
 import com.smkcoding.smkcodingchalleng2.MainActivity
 import com.smkcoding.smkcodingchalleng2.R
+import com.smkcoding.smkcodingchalleng2.login.Login
 
 class SplashScreen : AppCompatActivity() {
 
@@ -22,7 +23,7 @@ class SplashScreen : AppCompatActivity() {
         //4second splash time
         Handler().postDelayed({
             //start main activity
-            startActivity(Intent(this@SplashScreen, MainActivity::class.java))
+            startActivity(Intent(this@SplashScreen, Login::class.java))
             //finish this activity
             finish()
         },4000)

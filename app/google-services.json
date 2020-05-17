@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "167595256624",
+    "firebase_url": "https://smkcodingchalleng2.firebaseio.com",
+    "project_id": "smkcodingchalleng2",
+    "storage_bucket": "smkcodingchalleng2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:167595256624:android:de91e85e2013efbeddb6f5",
+        "android_client_info": {
+          "package_name": "com.smkcoding.smkcodingchalleng2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "167595256624-7l6f0j2sldv07sb66rrk6meioroeiel1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.smkcoding.smkcodingchalleng2",
+            "certificate_hash": "94c445692e2135d55f1ce426d066050f285ce55b"
+          }
+        },
+        {
+          "client_id": "167595256624-c3mdgqou8ki2p9a4ltua8opv4ldki52r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrOD7shRosbNtXn14LaBnYfMcws_MEiNw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "167595256624-c3mdgqou8ki2p9a4ltua8opv4ldki52r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
